@@ -1,0 +1,31 @@
+def new_pass():
+    file = open ("passwoers.txt", "a")
+    usage = input ("Password for: ")
+    password = input("Password: ")
+    
+    line = f"{usage} / {password}\n"
+
+    file.write(line)
+    file.close()
+
+def view_pass():
+    file = open("passwords.txt", "r")
+
+    line = input("Search: ")
+
+    for x in file:
+        if line in x:
+            print(x)
+    file.close()
+
+while True:
+    print("n - new, s - search, e - exit")
+    comm = input("Command: ")
+    if comm.lower == "n":
+        new_pass()
+    elif comm.lower() == "s":
+       view_pass()
+    elif comm.lower() == "e":
+        break
+    else:
+        print("ERROR: command not found")
